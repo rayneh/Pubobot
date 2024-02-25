@@ -39,6 +39,14 @@ team_emojis = [
 ]
 
 
+channels = []
+channels_list = []
+active_pickups = []
+active_matches = []
+allowoffline = []  # users with !allowoffline
+waiting_reactions = {}  # {message_id: function}
+
+
 def init():
     global \
         channels, \
@@ -51,8 +59,8 @@ def init():
     channels_list = []
     active_pickups = []
     active_matches = []
-    allowoffline = []  # users with !allowoffline
-    waiting_reactions = dict()  # {message_id: function}
+    allowoffline = []
+    waiting_reactions = {}
 
 
 class UnpickedPool:
@@ -882,6 +890,10 @@ class Channel:
                 self.lastgame(member, msgtup[1:msglen])
 
             elif lower[0] == "last":
+                self.lastgame(member, msgtup[1:msglen])
+
+            elif lower[0] == "liast":
+                self.who(member, lower[1:msglen])
                 self.lastgame(member, msgtup[1:msglen])
 
             elif lower[0] == "sub":
