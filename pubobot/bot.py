@@ -918,7 +918,7 @@ class Channel:
             elif lower[0] == "subfor":
                 await self.subfor(member, lower[1:2])
 
-            elif lower[0] == "teams":
+            elif lower[0] == ["teams", "turn"]:
                 self.print_teams(member)
 
             elif lower[0] == "matches":
