@@ -1730,7 +1730,6 @@ class Channel:
 
     def print_teams(self, member):
         match = self._match_by_player(member)
-        print(match)
         if not match:
             client.reply(self.channel, member, "Could not find an active match.")
             return
