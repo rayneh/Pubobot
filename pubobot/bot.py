@@ -918,7 +918,7 @@ class Channel:
             elif lower[0] == "subfor":
                 await self.subfor(member, lower[1:2])
 
-            elif lower[0] == ["teams", "turn"]:
+            elif lower[0] in ["teams", "turn"]:
                 self.print_teams(member)
 
             elif lower[0] == "matches":
@@ -1681,6 +1681,7 @@ class Channel:
 
     def print_teams(self, member):
         match = self._match_by_player(member)
+        print(match)
         if not match:
             client.reply(self.channel, member, "Could not find an active match.")
             return
